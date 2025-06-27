@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AuthCard from '../components/AuthCard';
 import Input from '../components/Input';
 import LoadingButton from '../components/LoadingButton';
@@ -17,7 +17,6 @@ const Login: React.FC = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<LoginForm>();
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState('');
-  const navigate = useNavigate();
 
   const onSubmit = async (data: LoginForm) => {
     setLoading(true);
@@ -27,9 +26,8 @@ const Login: React.FC = () => {
         email: data.email,
         password: data.password,
       });
-      // Save token, redirect, etc.
-      // localStorage.setItem('token', res.data.token);
-      // navigate('/dashboard');
+      localStorage.setItem('token', res.data.token);
+      window.location.href = 'http://localhost:5173';
       alert('Login successful! Token: ' + res.data.token);
     } catch (err) {
       if (axios.isAxiosError(err) && err.response?.status === 401) {
