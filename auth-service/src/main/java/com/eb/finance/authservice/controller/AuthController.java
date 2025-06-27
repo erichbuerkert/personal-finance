@@ -4,8 +4,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import lombok.RequiredArgsConstructor;
 
-import com.eb.finance.authservice.objects.AuthRequest;
-import com.eb.finance.authservice.objects.AuthResponse;
+import com.eb.finance.authservice.models.AuthRequest;
+import com.eb.finance.authservice.models.AuthResponse;
 import com.eb.finance.authservice.service.AuthService;
 
 @RestController

@@ -1,4 +1,4 @@
-package com.eb.finance.authservice.objects;
+package com.eb.finance.authservice.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
