@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Link, useNavigate } from "react-router-dom"
-import API from '../api/api';
+import API from '../api/axios';
 import axios from 'axios';
 import stockChart from "../assets/stock-chart.jpeg";
 import { appleIcon, metaIcon, googleIcon } from '@/constants/icons';

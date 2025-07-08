@@ -15,10 +15,13 @@ import {
 import { useLocation, Link } from "react-router-dom"
 import { navData } from "@/data/nav-data"
 import { cn } from "@/lib/utils"
+import { useAuthRedirect } from "./hooks/use-auth-redirect"
 
 export default function App() {
 
   const location = useLocation()
+  const checked = useAuthRedirect()
+  if (!checked) return null
   const activeItem = navData.find((item: { url: string }) => item.url === location.pathname) 
 
   return (

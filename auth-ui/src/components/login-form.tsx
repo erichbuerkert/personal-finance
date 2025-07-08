@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Link } from "react-router-dom"
-import API from '../api/api';
+import API from '../api/axios';
 import axios from 'axios';
 import stockChart from "../assets/stock-chart.jpeg";
 import { appleIcon, metaIcon, googleIcon } from '@/constants/icons';
@@ -31,7 +31,7 @@ export function LoginForm({
         password: data.password,
       });
       localStorage.setItem('token', res.data.token);
-      window.location.href = 'http://localhost:3001'; // or wherever home-ui is
+      window.location.href = 'http://localhost:5173';
     } catch (err) {
       if (axios.isAxiosError(err) && err.response?.status === 401) {
         setApiError('Invalid email or password.');
