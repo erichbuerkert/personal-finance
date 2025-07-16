@@ -1,0 +1,49 @@
+spring:
+    application:
+        name: auth-service
+    datasource:
+        url: jdbc:h2:mem:testdb
+        driver-class-name: org.h2.Driver
+        username: sa
+        password: password
+    h2:
+        console:
+            enabled: true
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+        show-sql: true
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.H2Dialect
+
+server:
+    port: 8080
+    servlet:
+        context-path: /auth-service
+
+eb:
+    security:
+        cors:
+            allowed-origins:
+                - http://localhost:3001
+            allowed-methods:
+                - GET
+                - POST
+                - PUT
+                - DELETE
+                - OPTIONS
+            allowed-headers:
+                - "*"
+            allow-credentials: true
+        http:
+            permit-all-paths:
+                - /auth/**
+                - /h2-console/**
+                - /public/*
+        jwt:
+            secret: /Q6LD6dDRJ13tp/zAWbqwHeRg+A41vUVMcbgjmbR1zZygKmjDC9YOsd2o9Id7mKsLHi4IGaWMVgcesnYoVlywA==
+            expiration-ms: 86400000
+    feign:
+        user-service:
+            url: http://localhost:8081/user-service
