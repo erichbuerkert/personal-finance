@@ -31,7 +31,6 @@ public class UserProfileService {
         profile.setFirstName(req.getFirstName());
         profile.setLastName(req.getLastName());
         profile.setPhoneNumber(req.getPhoneNumber());
-        // JPA dirty‑checks & flushes automatically
     }
 
     public UserProfile getByEmail(String email) {
